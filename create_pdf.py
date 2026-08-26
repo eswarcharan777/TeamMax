@@ -1,0 +1,10 @@
+from fpdf import FPDF
+pdf = FPDF()
+pdf.add_page()
+pdf.set_font("Arial", size=12)
+pdf.cell(200, 10, txt="Industrial Equipment Manual", ln=True)
+pdf.cell(200, 10, txt="Maintenance: Check oil every 3 months.", ln=True)
+pdf.cell(200, 10, txt="Fault: Vibration indicates bearing failure.", ln=True)
+pdf.cell(200, 10, txt="Safety: Always shut down before inspection.", ln=True)
+pdf.output("C:/Users/ASUS/industrial_manual.pdf")
+print("PDF created!")
