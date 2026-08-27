@@ -1,4 +1,5 @@
 import ollama
+import base64
 
 def vision_agent(state: dict) -> dict:
     image_path = state.get('image_path', '')
@@ -9,6 +10,16 @@ def vision_agent(state: dict) -> dict:
             'agent_name': 'vision_agent',
             'output': 'No image provided.',
             'status': 'skipped'
+        }
+
+    try:
+        with open(image_path, "rb") as f:
+            image_data = base64.b64encode(f.read()).decode("utf-8")
+    except Exception as e:
+        return {
+            'agent_name': 'vision_agent',
+            'output': f'Image load failed: {e}',
+            'status': 'error'
         }
 
     prompt = (
@@ -24,7 +35,7 @@ def vision_agent(state: dict) -> dict:
         messages=[{
             'role': 'user',
             'content': prompt,
-            'images': [image_path]
+            'images': [image_data]
         }]
     )
 
@@ -34,11 +45,10 @@ def vision_agent(state: dict) -> dict:
         'status': 'success'
     }
 
-# This part runs when you test the file directly
 if __name__ == '__main__':
     test_state = {
         'input': 'Check for faults',
-        'image_path': 'test_machine.jpg'
+        'image_path': 'C:\\Users\\ASUS\\TeamMax\\test_machine.png'
     }
     result = vision_agent(test_state)
     print(result['output'])
