@@ -4,6 +4,7 @@ from vision_agent import vision_agent
 from agent3_document import document_agent
 from knowledge_agent import knowledge_agent
 from agent4_diagnosis import diagnosis_agent
+from agent6_alert import alert_agent
 from agent5_report import report_agent
 
 class State(TypedDict):
@@ -31,6 +32,10 @@ def run_diagnosis(state):
     state["context"]["diagnosis_agent"] = r["output"]
     return state
 
+def run_alert(state):
+    alert_agent(state)
+    return state
+
 def run_report(state):
     r = report_agent(state)
     state["context"]["report_agent"] = r["output"]
@@ -41,13 +46,15 @@ graph.add_node("vision", run_vision)
 graph.add_node("document", run_document)
 graph.add_node("knowledge", run_knowledge)
 graph.add_node("diagnosis", run_diagnosis)
+graph.add_node("alert", run_alert)
 graph.add_node("report", run_report)
 
 graph.set_entry_point("vision")
 graph.add_edge("vision", "document")
 graph.add_edge("document", "knowledge")
 graph.add_edge("knowledge", "diagnosis")
-graph.add_edge("diagnosis", "report")
+graph.add_edge("diagnosis", "alert")
+graph.add_edge("alert", "report")
 graph.add_edge("report", END)
 
 app = graph.compile()
