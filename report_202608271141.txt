@@ -1,0 +1,45 @@
+Here is a rewritten version of the industrial fault report:
+
+**FAULT REPORT**
+
+**Date:** 2026-08-27 11:41
+**Report ID:** FR-202608271141
+**Reported By:** Field Worker
+
+**Issue Reported:**
+Motor Overheating
+
+**Diagnosis:**
+
+The motor has been diagnosed as having a fault due to overheating. Based on the symptoms observed, it is believed that the root cause of the fault is likely related to a combination of factors, including poor cooling, electrical connections, or other thermal stress.
+
+**Fault Details:**
+
+* **Fault Type:** Motor Casing Damage Due to Overheating
+* **Severity:** Critical
+* **Root Cause:** The motor has been exposed to temperatures higher than its maximum rating, indicated by visible burn marks, cracks on the casing, and a bent mounting bracket.
+
+**Recommendations:**
+
+To address this fault, the following corrective actions are recommended:
+
+1. **Inspection and Cleaning:** Inspect the motor and its mounting bracket for any signs of damage or wear. Clean the area to prevent any further damage or corrosion.
+2. **Cooling System Upgrade:** Upgrade the cooling system to ensure that the motor is properly ventilated and cooled. This may involve replacing the existing fans or adding additional cooling elements.
+3. **Electrical Connection Check:** Verify that all electrical connections are secure and meet the manufacturer's specifications. Make any necessary adjustments to prevent electrical shock or damage to the motor.
+4. **Thermal Stress Reduction:** Implement measures to reduce thermal stress on the motor, such as adjusting the operating schedule or using thermal management materials.
+
+**Action Plan:**
+
+1. **Immediate Action:** Shut down the motor immediately and isolate it from the power source to prevent any further damage or electrical shock.
+2. **Estimated Downtime:** The estimated downtime for this repair is 2-4 weeks, depending on the extent of the damage and the required replacement parts.
+
+**Priority Level:**
+**Immediate**
+
+**Estimated Fix Time:**
+2-4 weeks
+
+**Note:**
+This diagnosis is based on the provided information and may require further investigation and testing to confirm the root cause of the fault. The estimated downtime may vary depending on the specific requirements of the repair and the availability of replacement parts.
+
+Please review and approve this report before taking any further action.
