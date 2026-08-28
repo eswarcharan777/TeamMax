@@ -1,0 +1,46 @@
+**Industrial Fault Report**
+
+**Report ID:** FR-202608271219
+**Date:** 2026-08-27 12:19
+**Reported By:** Field Worker
+
+**Issue Reported:**
+Motor Overheating and Burning Smell Detected
+
+**Summary:**
+A visual inspection of the motor has revealed a motor winding failure due to overload, resulting in overheating and a burning smell. This fault is classified as High Severity and requires immediate attention to prevent further damage.
+
+**Diagnosis:**
+The fault type is Motor Winding Failure due to Overload, with a severity level of High. The root cause of the issue is suspected to be a short-circuit or overload of the copper wire coil, leading to overheating and a burning smell.
+
+**Visual Inspection Results:**
+The damaged and disorganized coil, missing winding material, and overheating issues confirm the diagnosis of motor winding failure due to overload. The presence of a burning smell further supports this conclusion.
+
+**Manual Reference:**
+The diagnosis is supported by the manual reference, which lists motor winding failure due to overload as a possible diagnosis. A similar case was previously reported, involving a motor with a similar symptom of overheating.
+
+**Immediate Action:**
+Shut down the motor immediately and allow it to cool down to prevent further damage.
+
+**Estimated Downtime:**
+The estimated downtime for the repair is 2-4 hours, depending on the complexity of the repair and the availability of replacement parts.
+
+**Recommended Actions:**
+To mitigate future occurrences, the following corrective actions are recommended:
+
+1. **Conduct Regular Maintenance:** Schedule regular maintenance checks to identify potential issues before they become major problems.
+2. **Monitor Motor Temperatures:** Install temperature monitoring devices to detect potential overheating issues early.
+3. **Inspect Coil Condition:** Regularly inspect the coil condition to identify any signs of wear or damage.
+4. **Update Safety Procedures:** Update safety procedures to ensure that personnel are aware of the risks associated with motor winding failure and can take necessary precautions.
+
+**Priority Level:**
+High Severity - Immediate action required to prevent further damage.
+
+**Estimated Fix Time:**
+The estimated fix time for this repair is 2-4 hours, depending on the complexity of the repair and the availability of replacement parts.
+
+**Sign-off:**
+I, [Field Worker's Name], confirm that this report is accurate and complete. I have performed the visual inspection and made the diagnosis based on the findings. I will ensure that the recommended actions are implemented to prevent similar issues in the future.
+
+**Signature:** [Field Worker's Signature]
+**Date:** 2026-08-27

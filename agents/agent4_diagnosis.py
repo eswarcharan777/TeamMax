@@ -5,7 +5,7 @@ def diagnosis_agent(state: dict) -> dict:
     doc = state["context"].get("document_agent", "N/A")
     past = state["context"].get("knowledge_agent", "N/A")
 
-    llm = OllamaLLM(model="llama3.2")
+    llm = OllamaLLM(model="gemma2:2b")
 
     prompt = f"""
 You are an expert industrial fault diagnosis system.

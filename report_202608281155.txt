@@ -1,0 +1,48 @@
+##  Fault Report
+
+**Date:** 2026-08-28 11:55
+**Report ID:** FR-202608281155
+**Reported By:** Field Worker [Name]
+
+**Issue:** Motor Overheating
+
+**Diagnosis:** 
+
+**Fault Type:** Overheating
+**Severity:** Medium
+**Root Cause:** Insufficient cooling system or dirty/blocked cooling fins are likely contributing to the motor overheating. This may also be a combination of factors such as poor motor placement or inadequate fan speed. 
+
+**Immediate Action:**
+
+1. **Shut down the motor immediately** to prevent further damage.
+2. **Allow the motor to cool down** for at least two hours before proceeding further. 
+3. **Document the situation:**  Take pictures and note any unusual behavior or signs of overheating. (e.g. smoke, burning smell, unusual noises, vibrations)
+
+**Estimated Downtime:**  
+* 2-4 hours: This allows sufficient time for the motor to cool down and for a thorough diagnosis.  The precise time needed may vary depending on the complexity of the issue.
+
+**Explanation:**  
+A visual inspection reveals no immediate faults, however the motor's inability to maintain safe operating temperature indicates a possible issue.  To determine the root cause and estimate downtime, further investigation is required.  
+
+
+**Recommended Actions:** 
+1. **Measure Motor Temperature:**  Record the temperature before shutting down the motor. 
+2. **Assess Fan Speed:** If possible, check the fan's speed and determine if it is operating correctly.
+3. **Analyze Motor Placement:** Evaluate the motor's placement and assess the potential for airflow obstruction.
+
+
+**Priority Level:**  
+Immediate
+**Estimated Fix Time:** 
+ 4 hours (this is a rough estimate, which may vary based on the severity of the issue).
+
+
+**Safety Considerations:** 
+Safety is paramount. The motor should be treated as a potential hazard. All personnel must wear appropriate safety gear before approaching the motor.  
+
+
+**Note:** A more detailed report will be provided once the investigation is complete.  This will include recommendations for corrective actions and potential preventative measures. 
+
+
+**Prepared by:** [Name of Field Worker] 
+**Approved by:** [Name of Supervisor] 

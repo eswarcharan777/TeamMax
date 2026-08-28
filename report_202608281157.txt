@@ -1,0 +1,51 @@
+##  ** fault  పక్టీయం**
+
+**సంస్కృతి:** 2026-08-28 11:57
+**పక్టీయం ID:** FR-202608281157
+**పక్టీయం చేయబడిన వ్యవస్థ:**  Field Worker 
+
+**సాధన వివరణ:**  మోటార్ హెచ్చనం 
+
+**faults:  electric motor** 
+
+**పక్టీయం లోపం:**  మోటార్ అంతర్గత పవర్ లోపం
+
+**పక్టీయం వ్యవధి:**  పెద్ద
+
+**పక్టీయం కారణం:**  
+
+* **వెలుగు పవర్ లోపం:**  మోటార్ వెలుగు వెలుగులో కంగిటం లో పనిచేసింది. 
+* **మోటార్ లువెత్తు:**  మోటార్ లువెత్తు లో కంగిటం లో పనిచేసింది. 
+
+**Immediate action:**
+
+1. **safety first:**  The motor should be disconnected from the power supply immediately.  
+2. **documentation:**  
+    * **pictures:**  Close-up pictures should be taken of the damaged areas including the frayed wire, burnt insulation, and blackened motor housing. 
+    * **motor information:**  Motor model, manufacturer, operating voltage, and any recent maintenance or upgrades should be documented. 
+3. **professional assessment:**  
+    * **electrician or motor repair technician:**  A professional assessment is crucial to determine the extent of the damage and the appropriate course of action.  
+
+**Estimated downtime:**
+
+* **immediate:** 2-4 hours for safety assessment and disconnection. 
+* **repair/replacement:** 24 hours to 48 hours for motor repair or replacement (depending on the extent of the damage). 
+* **full operation:** 24 hours to 48 hours for reinstallation and testing after repairs or replacement. 
+
+**recommended actions:**
+
+1. **overload condition:**  Determine if the motor was overloaded due to a process issue, load mismatch, or a mechanical failure.  
+2. **thorough inspection:**  A complete inspection of the motor and its components should be undertaken to identify the root cause of the failure. 
+3. **preventive measures:**  Following the repair/replacement, a comprehensive inspection and maintenance plan should be developed to prevent similar failures in the future.  This may include re-evaluation of operating parameters, preventive maintenance schedules, and component upgrades where necessary. 
+
+**priority level:**  immediate
+
+**estimated repair time:**  24 hours 
+ 
+
+**notes:** 
+this fault is classified as a critical failure.  Delaying repairs could lead to further motor damage and potentially safety hazards.  Immediate action is imperative to minimize downtime and ensure continued safe operation of the machinery. 
+
+
+
+

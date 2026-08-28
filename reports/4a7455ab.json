@@ -1,0 +1,12 @@
+{
+  "id": "4a7455ab",
+  "timestamp": "2026-08-28T09:59:45.495848",
+  "input": "WHAT MACHIN IS THERE IN THIS IMAGE ",
+  "image_path": "C:\\Users\\ASUS\\TeamMax\\uploads\\capture_1787891315866.jpg",
+  "result": {
+    "vision_agent": "ERROR: No industrial equipment detected in the image.\n\nIdentified content: Man\n\nPlease upload an image of industrial machinery or equipment for fault diagnosis. Persons, animals, and non-industrial objects cannot be diagnosed.",
+    "__rejected__": true,
+    "alert_agent": "\u26a0\ufe0f INVALID IMAGE \u2014 No industrial equipment detected.",
+    "report_agent": "\u274c DIAGNOSIS ABORTED\n\nERROR: No industrial equipment detected in the image.\n\nIdentified content: Man\n\nPlease upload an image of industrial machinery or equipment for fault diagnosis. Persons, animals, and non-industrial objects cannot be diagnosed.\n\nPlease upload a clear image of industrial machinery or equipment and try again."
+  }
+}

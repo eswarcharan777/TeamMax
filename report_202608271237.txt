@@ -1,0 +1,73 @@
+**INDUSTRIAL FAULT REPORT**
+
+**DATE:** 2026-08-27
+**REPORT ID:** FR-202608271237
+**REPORTED BY:** Field Worker
+
+**ISSUE REPORTED:**
+
+Motor Overheating and Burn Smell Detected
+
+**DIAGNOSIS:**
+
+Based on the provided information, the following diagnosis is recommended:
+
+**FAULT TYPE:** Synchronous Motor Winding Failure due to Overheating
+
+**SEVERITY:** High
+
+**ROOT CAUSE:** Overheating of the motor, likely caused by an overload or other internal fault that led to excessive temperature increase.
+
+**IMMEDIATE ACTION:**
+
+1. Shut down the equipment immediately to prevent further damage.
+2. Inspect the windings for any signs of damage or further failure.
+3. Perform a visual inspection of the motor and its surrounding components to identify any potential causes of the overheating.
+
+**ESTIMATED DOWNTIME:**
+
+2-4 hours, depending on the extent of the damage and the availability of replacement parts.
+
+**RATIONALE:**
+
+* The visible damage to the motor casing and exposed windings suggest a severe internal failure.
+* The presence of copper windings and the rotor indicates that the motor is not functioning correctly.
+* Past similar cases provided a diagnostic framework for motor overheating and winding failure, which supports the conclusion that the fault is related to overheating.
+* The high severity rating is assigned due to the potential for further damage, smoke, and safety risks associated with the overheating issue.
+
+**NOTE:**
+
+* The estimated downtime is a rough estimate and may vary depending on the specific circumstances of the fault and the availability of replacement parts.
+
+**RECOMMENDED ACTIONS:**
+
+The following specific corrective actions are recommended based on the diagnosis:
+
+1. Replace the faulty motor with a new one of the same specifications.
+2. Perform a thorough maintenance check on the motor's cooling system to identify and address any potential issues.
+3. Conduct a review of the motor's operating parameters to ensure that it is not being overloaded or subjected to excessive stress.
+4. Provide training to the operating personnel on the proper use and maintenance of the motor.
+
+**PRIORITY LEVEL:**
+
+**IMMEDIATE**
+
+**ESTIMATED FIX TIME:**
+
+* Replacement of the faulty motor: 2-4 hours
+* Maintenance check on the cooling system: 1-2 hours
+* Review of operating parameters: 1-2 hours
+* Training for operating personnel: Ongoing
+
+**ACTION ITEMS:**
+
+* Schedule a maintenance window for the replacement of the faulty motor.
+* Provide the necessary training to the operating personnel on the proper use and maintenance of the motor.
+* Conduct a thorough review of the motor's operating parameters to ensure that it is not being overloaded or subjected to excessive stress.
+
+**SIGN-OFF:**
+
+This report is signed off as accurate and complete by the Field Worker.
+
+Signature: ______________________________
+Date: __________________________________
