@@ -1,0 +1,13 @@
+{
+  "id": "12589555",
+  "timestamp": "2026-08-29T17:11:41.179159",
+  "input": "Mortar overheating",
+  "image_path": "C:\\Users\\ASUS\\TeamMax\\uploads\\motor_burn.jpg",
+  "language": "english",
+  "result": {
+    "vision_agent": "ERROR: No industrial equipment detected in the image.\n\nIdentified content: Electric motor with copper wire.\n\nPlease upload an image of industrial machinery or equipment for fault diagnosis. Persons, animals, and non-industrial objects cannot be diagnosed.",
+    "__rejected__": true,
+    "alert_agent": "\u26a0\ufe0f INVALID IMAGE \u2014 No industrial equipment detected.",
+    "report_agent": "\u274c DIAGNOSIS ABORTED\n\nERROR: No industrial equipment detected in the image.\n\nIdentified content: Electric motor with copper wire.\n\nPlease upload an image of industrial machinery or equipment for fault diagnosis. Persons, animals, and non-industrial objects cannot be diagnosed.\n\nPlease upload a clear image of industrial machinery or equipment and try again."
+  }
+}

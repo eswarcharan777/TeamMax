@@ -29,8 +29,6 @@ const styles = {
   reportTitle: { fontSize: 15, fontWeight: 700, color: "#e6edf3", margin: 0 },
   reportId: { marginLeft: "auto", fontSize: 12, color: "#7d8590" },
   reportBody: { padding: 24, whiteSpace: "pre-wrap", fontSize: 14, lineHeight: 1.8, color: "#c9d1d9", fontFamily: "'Courier New', monospace" },
-  agentRow: { display: "flex", gap: 8, marginBottom: 20, flexWrap: "wrap" },
-  agentBadge: { background: "#21262d", border: "1px solid #30363d", borderRadius: 6, padding: "4px 10px", fontSize: 12, color: "#7d8590", display: "flex", alignItems: "center", gap: 5 },
   spinner: { display: "inline-block", width: 16, height: 16, border: "2px solid #f9731633", borderTop: "2px solid #f97316", borderRadius: "50%", animation: "spin 0.8s linear infinite" },
   downloadBtn: { marginTop: 12, padding: "10px 20px", background: "#21262d", border: "1px solid #30363d", borderRadius: 8, color: "#e6edf3", fontSize: 13, cursor: "pointer", fontWeight: 600 },
   pdfBtn: { marginTop: 12, marginLeft: 10, padding: "10px 20px", background: "#1f6feb22", border: "1px solid #1f6feb", borderRadius: 8, color: "#58a6ff", fontSize: 13, cursor: "pointer", fontWeight: 600 },
@@ -71,20 +69,118 @@ const LANGUAGES = [
 
 function getSeverity(report) {
   const text = (report.result?.alert_agent || "") + " " + (report.result?.report_agent || "");
-  // English keywords
   if (text.includes("CRITICAL")) return "CRITICAL";
   if (text.includes("HIGH") || text.includes("High")) return "HIGH";
   if (text.includes("WARNING") || text.includes("Warning") || text.includes("MEDIUM") || text.includes("Medium")) return "WARNING";
   if (text.includes("LOW") || text.includes("Low")) return "LOW";
-  // Telugu keywords
   if (text.includes("అధికం") || text.includes("క్రిటికల్")) return "CRITICAL";
   if (text.includes("మధ్యస్థం")) return "WARNING";
   if (text.includes("తక్కువ")) return "LOW";
-  // Hindi keywords
   if (text.includes("उच्च") || text.includes("गंभीर")) return "CRITICAL";
   if (text.includes("मध्यम")) return "WARNING";
   if (text.includes("कम")) return "LOW";
   return "UNKNOWN";
+}
+
+function AgentPipeline({ activeAgent, completedAgents, loading, elapsed }) {
+  return (
+    <div style={{ background: "#161b22", border: "1px solid #21262d", borderRadius: 12, padding: "16px 20px", marginBottom: 20 }}>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 14 }}>
+        <span style={{ fontSize: 12, fontWeight: 600, color: "#7d8590", letterSpacing: 1 }}>AGENT PIPELINE</span>
+        {loading && (
+          <span style={{ fontSize: 13, fontWeight: 700, color: "#f97316", fontVariantNumeric: "tabular-nums" }}>
+            ⏱ {String(Math.floor(elapsed / 60)).padStart(2, "0")}:{String(elapsed % 60).padStart(2, "0")}
+          </span>
+        )}
+        {!loading && completedAgents.length === AGENTS.length && (
+          <span style={{ fontSize: 12, color: "#22c55e", fontWeight: 600 }}>✓ Completed</span>
+        )}
+      </div>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
+        {AGENTS.map((agent, i) => {
+          const isCompleted = completedAgents.includes(agent);
+          const isActive = activeAgent === i;
+          const bgColor = isCompleted ? "#22c55e11" : isActive ? "#f9731618" : "#21262d";
+          const textColor = isCompleted ? "#22c55e" : isActive ? "#f97316" : "#7d8590";
+
+          return (
+            <div key={agent} style={{ display: "flex", alignItems: "center", flexShrink: 0 }}>
+              <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
+
+                {/* Smoke particles */}
+                <div style={{ height: 22, display: "flex", alignItems: "flex-end", gap: 3, justifyContent: "center" }}>
+                  {isActive ? (
+                    <>
+                      <div style={{ width: 5, height: 5, borderRadius: "50%", background: "#f9731699", animation: "smoke1 1.4s ease-out infinite" }} />
+                      <div style={{ width: 7, height: 7, borderRadius: "50%", background: "#f9731666", animation: "smoke2 1.4s ease-out infinite 0.35s" }} />
+                      <div style={{ width: 5, height: 5, borderRadius: "50%", background: "#f9731644", animation: "smoke1 1.4s ease-out infinite 0.7s" }} />
+                    </>
+                  ) : <div style={{ width: 7, height: 7 }} />}
+                </div>
+
+                {/* Circle with spinning ring + spinning gear */}
+                <div style={{ position: "relative", width: 64, height: 64 }}>
+                  {/* SVG ring */}
+                  <svg width="64" height="64" style={{ position: "absolute", top: 0, left: 0 }}>
+                    {/* bg ring */}
+                    <circle cx="32" cy="32" r="28" fill="none" stroke="#30363d" strokeWidth="3" />
+                    {/* active: spinning arc */}
+                    {isActive && (
+                      <circle
+                        cx="32" cy="32" r="28"
+                        fill="none"
+                        stroke="#f97316"
+                        strokeWidth="3"
+                        strokeDasharray="50 126"
+                        strokeLinecap="round"
+                        style={{ animation: "ringRotate 0.9s linear infinite", transformOrigin: "32px 32px" }}
+                      />
+                    )}
+                    {/* completed: full green ring */}
+                    {isCompleted && (
+                      <circle cx="32" cy="32" r="28" fill="none" stroke="#22c55e" strokeWidth="3" />
+                    )}
+                  </svg>
+
+                  {/* Center background + icon */}
+                  <div style={{
+                    position: "absolute",
+                    top: 6, left: 6, right: 6, bottom: 6,
+                    borderRadius: "50%",
+                    background: bgColor,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}>
+                    <span style={{
+                      fontSize: 22,
+                      display: "inline-block",
+                      animation: isActive ? "gearSpin 1s linear infinite" : "none",
+                    }}>
+                      {isCompleted ? "✅" : "⚙️"}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Agent name + status */}
+                <span style={{ fontSize: 11, fontWeight: 600, color: textColor, textTransform: "capitalize" }}>
+                  {agent}
+                </span>
+                {isActive && <span style={{ fontSize: 9, color: "#f97316", fontWeight: 700, letterSpacing: 0.5 }}>RUNNING</span>}
+                {isCompleted && <span style={{ fontSize: 9, color: "#22c55e", fontWeight: 700, letterSpacing: 0.5 }}>DONE</span>}
+                {!isActive && !isCompleted && <span style={{ fontSize: 9, color: "#30363d", fontWeight: 700 }}>IDLE</span>}
+              </div>
+
+              {/* Arrow */}
+              {i < AGENTS.length - 1 && (
+                <div style={{ margin: "0 2px 24px", color: isCompleted ? "#22c55e" : "#30363d", fontSize: 20, fontWeight: 700, transition: "color 0.3s" }}>›</div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
 }
 
 function StatisticsTab({ reports }) {
@@ -173,17 +269,29 @@ export default function App() {
   const [completedAgents, setCompletedAgents] = useState([]);
   const [currentReportId, setCurrentReportId] = useState(null);
   const [language, setLanguage] = useState("english");
+  const [elapsed, setElapsed] = useState(0);
 
   const [cameraOpen, setCameraOpen] = useState(false);
   const [cameraError, setCameraError] = useState("");
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
   const streamRef = useRef(null);
+  const timerRef = useRef(null);
 
   const [reports, setReports] = useState([]);
   const [historyLoading, setHistoryLoading] = useState(false);
   const [selectedReport, setSelectedReport] = useState(null);
   const [hoveredId, setHoveredId] = useState(null);
+
+  useEffect(() => {
+    if (loading) {
+      setElapsed(0);
+      timerRef.current = setInterval(() => setElapsed(e => e + 1), 1000);
+    } else {
+      clearInterval(timerRef.current);
+    }
+    return () => clearInterval(timerRef.current);
+  }, [loading]);
 
   const fetchReports = async () => {
     setHistoryLoading(true);
@@ -311,10 +419,25 @@ export default function App() {
 
   const reportId = report.match(/FR-\d+/)?.[0] || "";
   const alertColor = alertMsg.includes("CRITICAL") ? "#ef4444" : alertMsg.includes("WARNING") ? "#f97316" : "#22c55e";
+  const progressPct = Math.round((completedAgents.length / AGENTS.length) * 100);
 
   return (
     <>
-      <style>{`* { box-sizing: border-box; margin: 0; padding: 0; } @keyframes spin { to { transform: rotate(360deg); } } textarea:focus { border-color: #f97316 !important; }`}</style>
+      <style>{`
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        @keyframes gearSpin { to { transform: rotate(360deg); } }
+        @keyframes ringRotate { to { transform: rotate(360deg); } }
+        @keyframes smoke1 {
+          0%   { transform: translateY(0) scale(1); opacity: 0.9; }
+          100% { transform: translateY(-20px) scale(2.2); opacity: 0; }
+        }
+        @keyframes smoke2 {
+          0%   { transform: translateY(0) scale(1); opacity: 0.7; }
+          100% { transform: translateY(-26px) scale(2.8); opacity: 0; }
+        }
+        textarea:focus { border-color: #f97316 !important; }
+      `}</style>
       <div style={styles.root}>
 
         {cameraOpen && (
@@ -377,21 +500,12 @@ export default function App() {
                 ))}
               </div>
 
-              <div style={styles.agentRow}>
-                {AGENTS.map((a, i) => {
-                  const isCompleted = completedAgents.includes(a);
-                  const isActive = activeAgent === i;
-                  return (
-                    <div key={a} style={{
-                      ...styles.agentBadge,
-                      ...(isCompleted ? { borderColor: "#22c55e", color: "#22c55e", background: "#22c55e11" } : {}),
-                      ...(isActive ? { borderColor: "#f97316", color: "#f97316", background: "#f9731611" } : {}),
-                    }}>
-                      {isActive ? <span style={styles.spinner} /> : isCompleted ? "✓" : "●"} {a}_agent
-                    </div>
-                  );
-                })}
-              </div>
+              <AgentPipeline
+                activeAgent={activeAgent}
+                completedAgents={completedAgents}
+                loading={loading}
+                elapsed={elapsed}
+              />
 
               <div style={styles.card}>
                 <div style={styles.cardTitle}>
@@ -427,6 +541,25 @@ export default function App() {
                 <div style={styles.cardTitle}>📝 Problem Description</div>
                 <textarea rows={4} style={styles.textarea} placeholder="e.g. Bearing making unusual grinding noise, possible overheating since last shift..." value={input} onChange={(e) => setInput(e.target.value)} />
               </div>
+
+              {loading && (
+                <div style={{ marginBottom: 10 }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 6 }}>
+                    <span style={{ fontSize: 12, color: "#7d8590" }}>Processing agents...</span>
+                    <span style={{ fontSize: 12, color: "#f97316", fontWeight: 700 }}>{progressPct}%</span>
+                  </div>
+                  <div style={{ background: "#21262d", borderRadius: 6, height: 8, overflow: "hidden" }}>
+                    <div style={{
+                      width: `${progressPct}%`,
+                      height: "100%",
+                      background: "linear-gradient(90deg, #f97316, #ef4444)",
+                      borderRadius: 6,
+                      transition: "width 0.5s ease",
+                      boxShadow: "0 0 8px #f9731666",
+                    }} />
+                  </div>
+                </div>
+              )}
 
               <button onClick={handleSubmit} disabled={loading} style={{ ...styles.btn, ...(loading ? styles.btnDisabled : {}) }}>
                 {loading ? "⏳  Running Diagnosis..." : "⚡  Run Diagnosis"}
