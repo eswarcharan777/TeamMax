@@ -1,0 +1,13 @@
+{
+  "id": "1554d63c",
+  "timestamp": "2026-08-29T16:52:57.204182",
+  "input": "THE BEARING IS NOT SPINNING \n",
+  "image_path": "C:\\Users\\ASUS\\TeamMax\\uploads\\bearing_fault.jpg",
+  "language": "telugu",
+  "result": {
+    "vision_agent": "ERROR: No industrial equipment detected in the image.\n\nIdentified content: Rusted mechanical parts.\n\nPlease upload an image of industrial machinery or equipment for fault diagnosis. Persons, animals, and non-industrial objects cannot be diagnosed.",
+    "__rejected__": true,
+    "alert_agent": "\u26a0\ufe0f INVALID IMAGE \u2014 No industrial equipment detected.",
+    "report_agent": "\u274c DIAGNOSIS ABORTED\n\nERROR: No industrial equipment detected in the image.\n\nIdentified content: Rusted mechanical parts.\n\nPlease upload an image of industrial machinery or equipment for fault diagnosis. Persons, animals, and non-industrial objects cannot be diagnosed.\n\nPlease upload a clear image of industrial machinery or equipment and try again."
+  }
+}
