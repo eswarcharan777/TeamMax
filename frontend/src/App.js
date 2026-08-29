@@ -71,10 +71,19 @@ const LANGUAGES = [
 
 function getSeverity(report) {
   const text = (report.result?.alert_agent || "") + " " + (report.result?.report_agent || "");
+  // English keywords
   if (text.includes("CRITICAL")) return "CRITICAL";
   if (text.includes("HIGH") || text.includes("High")) return "HIGH";
-  if (text.includes("WARNING") || text.includes("Warning")) return "WARNING";
+  if (text.includes("WARNING") || text.includes("Warning") || text.includes("MEDIUM") || text.includes("Medium")) return "WARNING";
   if (text.includes("LOW") || text.includes("Low")) return "LOW";
+  // Telugu keywords
+  if (text.includes("అధికం") || text.includes("క్రిటికల్")) return "CRITICAL";
+  if (text.includes("మధ్యస్థం")) return "WARNING";
+  if (text.includes("తక్కువ")) return "LOW";
+  // Hindi keywords
+  if (text.includes("उच्च") || text.includes("गंभीर")) return "CRITICAL";
+  if (text.includes("मध्यम")) return "WARNING";
+  if (text.includes("कम")) return "LOW";
   return "UNKNOWN";
 }
 
@@ -163,7 +172,7 @@ export default function App() {
   const [activeAgent, setActiveAgent] = useState(-1);
   const [completedAgents, setCompletedAgents] = useState([]);
   const [currentReportId, setCurrentReportId] = useState(null);
-  const [language, setLanguage] = useState("english"); // ← NEW
+  const [language, setLanguage] = useState("english");
 
   const [cameraOpen, setCameraOpen] = useState(false);
   const [cameraError, setCameraError] = useState("");
@@ -254,7 +263,7 @@ export default function App() {
       const response = await fetch("http://localhost:8000/run-stream", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ input, image_path: uploadData.image_path, language }), // ← language added
+        body: JSON.stringify({ input, image_path: uploadData.image_path, language }),
       });
 
       const reader = response.body.getReader();
@@ -350,7 +359,6 @@ export default function App() {
                 <p style={styles.heroSub}>Upload a machine image, describe the problem — get a full diagnostic report.</p>
               </div>
 
-              {/* ── LANGUAGE SELECTOR ── */}
               <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 20, background: "#161b22", border: "1px solid #21262d", borderRadius: 10, padding: "12px 16px" }}>
                 <span style={{ fontSize: 13, color: "#7d8590", fontWeight: 600 }}>🌐 Report Language:</span>
                 {LANGUAGES.map(lang => (
@@ -369,7 +377,6 @@ export default function App() {
                 ))}
               </div>
 
-              {/* ── AGENT BADGES ── */}
               <div style={styles.agentRow}>
                 {AGENTS.map((a, i) => {
                   const isCompleted = completedAgents.includes(a);

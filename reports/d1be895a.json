@@ -1,0 +1,13 @@
+{
+  "id": "d1be895a",
+  "timestamp": "2026-08-29T15:27:19.292415",
+  "input": "THE TIME IS NOT WORKING IN THE WATCH\n",
+  "image_path": "C:\\Users\\ASUS\\TeamMax\\uploads\\capture_1787997416210.jpg",
+  "language": "english",
+  "result": {
+    "vision_agent": "ERROR: No industrial equipment detected in the image.\n\nIdentified content: Man holding a watch.\n\nPlease upload an image of industrial machinery or equipment for fault diagnosis. Persons, animals, and non-industrial objects cannot be diagnosed.",
+    "__rejected__": true,
+    "alert_agent": "\u26a0\ufe0f INVALID IMAGE \u2014 No industrial equipment detected.",
+    "report_agent": "\u274c DIAGNOSIS ABORTED\n\nERROR: No industrial equipment detected in the image.\n\nIdentified content: Man holding a watch.\n\nPlease upload an image of industrial machinery or equipment for fault diagnosis. Persons, animals, and non-industrial objects cannot be diagnosed.\n\nPlease upload a clear image of industrial machinery or equipment and try again."
+  }
+}

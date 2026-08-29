@@ -22,7 +22,6 @@ def vision_agent(state: dict) -> dict:
             'status': 'error'
         }
 
-    # Step 1: Check if image contains industrial equipment
     check_prompt = (
         "Look at this image carefully. "
         "Does this image show any of the following: industrial equipment, machinery, "
@@ -44,8 +43,8 @@ def vision_agent(state: dict) -> dict:
 
     answer = check_response['message']['content'].strip().upper()
 
-    # If not a machine image, reject immediately
-    if answer.startswith("NO") and "YES" not in answer:
+    # Reject only if clearly not industrial — ignore if motor/electric mentioned
+    if "NO" in answer and "YES" not in answer and "MOTOR" not in answer and "ELECTRIC" not in answer and "MACHINE" not in answer and "EQUIPMENT" not in answer:
         identify_prompt = (
             "What is the main subject or object visible in this image? "
             "Describe it in one short sentence."
@@ -72,7 +71,6 @@ def vision_agent(state: dict) -> dict:
             'status': 'rejected'
         }
 
-    # Step 3: Proceed with normal analysis
     prompt = (
         "You are an industrial equipment inspector. Analyze this image and describe:\n"
         "1. What equipment is shown\n"

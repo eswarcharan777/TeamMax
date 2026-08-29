@@ -36,7 +36,7 @@ os.makedirs(REPORTS_DIR, exist_ok=True)
 class UserInput(BaseModel):
     input: str
     image_path: str
-    language: str = "english"  # ← NEW
+    language: str = "english"
 
 @server.post("/upload")
 async def upload_image(file: UploadFile = File(...)):
@@ -111,12 +111,14 @@ def list_reports():
         if filename.endswith(".json"):
             with open(os.path.join(REPORTS_DIR, filename)) as f:
                 data = json.load(f)
+                alert = data.get("result", {}).get("alert_agent", "")
                 reports.append({
                     "id": data["id"],
                     "timestamp": data["timestamp"],
                     "input": data["input"],
                     "image_path": data.get("image_path", ""),
-                    "language": data.get("language", "english")
+                    "language": data.get("language", "english"),
+                    "result": {"alert_agent": alert}
                 })
     return reports
 
